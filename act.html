@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategy Pattern</title>
+
+</head>
+
+<body>
+  <h1>Strategy Pattern</h1>
+
+  <button onclick="arithmetic('add', 5, 3)">Add 5 + 3</button>
+  <button onclick="arithmetic('subtract', 5, 3)">Subtract 5 - 3</button>
+  <button onclick="arithmetic('multiply', 5, 3)">Multiply 5 * 3</button>
+  <button onclick="arithmetic('divide', 5, 3)">Divide 5 ÷ 3</button>
+  <button onclick="arithmetic('divide', 5, 0)">Divide 5 ÷ 0</button>
+
+  <div id="result"></div>
+
+  <script>
+
+    function arithmetic(operation, a, b) {
+      let strategy;
+
+
+      switch (operation) {
+        case "add":
+          strategy = addition;
+          break;
+        case "subtract":
+          strategy = subtraction;
+          break;
+        case "multiply":
+          strategy = multiplication;
+          break;
+        case "divide":
+          strategy = division;
+          break;
+        default:
+          document.getElementById("output").innerHTML += `Invalid operation: ${operation}<br>`;
+          return;
+      }
+
+
+      calculator.setStrategy(strategy);
+
+
+      const result = calculator.executeCalculation(a, b);
+
+
+      document.getElementById("result").innerHTML = `Result is:  ${result}<br>`;
+    }
+  </script>
+  <script src="cipher2.js"></script>
+</body>
+
+</html>
