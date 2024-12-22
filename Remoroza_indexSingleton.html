@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <script src="singleton.js"></script> 
+</head>
+<body>
+    <h1>Singleton Pattern</h1>
+    <button onclick="displayInstance()">Click to Display</button>
+<script>
+function displayInstance(){
+    const instance = Singleton.getInstance();
+
+
+    //Display the instance in the console
+    console.log("Singleton Instance:", instance);
+
+    alert(`Singleton Instance Message: ${instance.message}`);
+}
+
+</script>
+</body>
+</html>
